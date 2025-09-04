@@ -1,0 +1,21 @@
+-- AppDatabase.sq
+
+import com.moneyapp.shared.model.TransactionCategory;
+
+CREATE TABLE TransactionEntity (
+    id TEXT NOT NULL PRIMARY KEY,
+    date TEXT NOT NULL,
+    description TEXT NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT AS TransactionCategory NOT NULL
+);
+
+selectAll:
+SELECT * FROM TransactionEntity;
+
+insert:
+INSERT OR REPLACE INTO TransactionEntity(id, date, description, amount, category)
+VALUES (?, ?, ?, ?, ?);
+
+deleteAll:
+DELETE FROM TransactionEntity;
