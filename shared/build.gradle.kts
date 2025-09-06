@@ -20,8 +20,13 @@ kotlin {
                 implementation(compose.material3)
                 implementation(compose.ui)
                 implementation(compose.materialIconsExtended)
+                implementation(compose.resources)
                 implementation("app.cash.sqldelight:runtime:2.0.2")
+                implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
                 implementation("com.benasher44:uuid:0.8.0")
+                implementation("com.plaid:plaid-java:37.0.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
             }
         }
         val androidMain by getting {
@@ -32,6 +37,8 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
+                implementation("io.ktor:ktor-server-core:2.3.10")
+                implementation("io.ktor:ktor-server-netty:2.3.10")
             }
         }
     }
