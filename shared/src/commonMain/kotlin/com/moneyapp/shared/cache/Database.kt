@@ -3,6 +3,7 @@ package com.moneyapp.shared.cache
 import app.cash.sqldelight.ColumnAdapter
 import com.moneyapp.shared.model.Transaction
 import com.moneyapp.shared.model.TransactionCategory
+import com.moneyapp.shared.model.generatePlaceholderTransactions
 
 class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val categoryAdapter = object : ColumnAdapter<TransactionCategory, String> {
@@ -32,6 +33,12 @@ class Database(databaseDriverFactory: DatabaseDriverFactory) {
                 amount = entity.amount,
                 category = entity.category
             )
+        }
+    }
+
+    fun populateDatabaseWithPlaceholders() {
+        if (getAllTransactions().isEmpty()) {
+            insertTransactions(generatePlaceholderTransactions())
         }
     }
 

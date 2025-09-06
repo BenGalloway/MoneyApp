@@ -21,6 +21,7 @@ kotlin {
                 implementation(compose.ui)
                 implementation(compose.materialIconsExtended)
                 implementation("app.cash.sqldelight:runtime:2.0.2")
+                implementation("com.benasher44:uuid:0.8.0")
             }
         }
         val androidMain by getting {
